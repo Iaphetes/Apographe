@@ -1,0 +1,10 @@
+[package]
+name = "Apographe"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+iced = {version = "0.13", features = ["highlighter", "tokio", "debug"]}
+tokio = {version = "1.41", features = ["fs"]}
+
+rfd = "0.13"
