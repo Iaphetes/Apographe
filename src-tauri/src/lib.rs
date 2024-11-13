@@ -1,6 +1,9 @@
 use std::str::FromStr;
 
-use comrak::{format_html, parse_document, Arena, Options};
+use comrak::{
+    format_html, nodes::NodeValue, parse_document, Arena, ExtensionOptions, Options, RenderOptions,
+    RenderOptionsBuilder,
+};
 
 // Learn more about Tauri commands at https://tauri.app/develop/calling-rust/
 #[tauri::command]
@@ -10,20 +13,23 @@ fn greet(name: &str) -> String {
 
 #[tauri::command]
 fn parse_markdown(document: &str) -> String {
+    println!("{:?}", document.bytes());
     let arena = Arena::new();
 
     // Parse the document into a root `AstNode`
-    let root = parse_document(&arena, document, &Options::default());
+    let mut options = Options::default();
+    options.render.hardbreaks = true;
+    let root = parse_document(&arena, document, &options);
 
     // Iterate over all the descendants of root.
-    // for node in root.descendants() {
-    //     if let NodeValue::Text(ref mut text) = node.data.borrow_mut().value {
-    //         // If the node is a text node, perform the string replacement.
-    //         *text = text.replace(orig_string, replacement);
-    //     }
-    // }
+    for node in root.descendants() {
+        if let NodeValue::SoftBreak = node.data.borrow_mut().value {
+            println!("linebreak {:?}", node);
+        }
+    }
     let mut html = vec![];
-    format_html(root, &Options::default(), &mut html).unwrap();
+    options.render.hardbreaks = true;
+    format_html(root, &options, &mut html).unwrap();
     println!("{:?}", String::from_utf8(html.clone()));
     String::from_utf8(html).unwrap()
     // String::from_str("lololo").unwrap()

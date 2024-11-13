@@ -4,12 +4,10 @@
   "version": "0.1.0",
   "identifier": "com.apographe.app",
   "build": {
-    "beforeDevCommand": "deno task dev",
-    "devUrl": "http://localhost:1420",
-    "beforeBuildCommand": "deno task build",
-    "frontendDist": "../build"
+    "frontendDist": "../src"
   },
   "app": {
+    "withGlobalTauri": true,
     "windows": [
       {
         "title": "apographe",
