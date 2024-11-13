@@ -18,7 +18,7 @@ fn parse_markdown(document: &str) -> String {
 
     // Parse the document into a root `AstNode`
     let mut options = Options::default();
-    options.render.hardbreaks = true;
+    // options.render.hardbreaks = true;
     let root = parse_document(&arena, document, &options);
 
     // Iterate over all the descendants of root.
@@ -28,7 +28,6 @@ fn parse_markdown(document: &str) -> String {
         }
     }
     let mut html = vec![];
-    options.render.hardbreaks = true;
     format_html(root, &options, &mut html).unwrap();
     println!("{:?}", String::from_utf8(html.clone()));
     String::from_utf8(html).unwrap()

@@ -22,8 +22,8 @@
   padding-top: 10vh;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  text-align: center;
+  justify-content: left;
+  text-align: left;
 }
 
 .logo {
@@ -39,9 +39,13 @@
 
 .row {
   display: flex;
-  justify-content: center;
+  justify-content: left;
 }
 
+.rendered_markdown {
+  
+  text-align: left;
+}
 a {
   font-weight: 500;
   color: #646cff;
