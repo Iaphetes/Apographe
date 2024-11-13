@@ -1,4 +1,45 @@
 <script lang="ts">
+
+  import { exists, BaseDirectory } from '@tauri-apps/plugin-fs';
+	import { marked } from 'marked';
+	import asyncDerivedStream from '../stream.js'
+	import { writable } from 'svelte/store'
+  import { invoke } from "@tauri-apps/api/core";
+
+
+	let text = writable(`Some words are *italic*, some are **bold**
+	
+	![test](/home/toxotes/Pictures/wallpaper.png)
+	
+	`);
+
+function randomSleep () {
+	const timeout = Math.floor(Math.random() * 2000)
+	return new Promise(resolve => setTimeout(resolve, timeout))
+}
+
+  async function parse_markdown(document){
+    return await invoke("parse_markdown", { document });  
+  }
+
+  let parsed_text = asyncDerivedStream(text, parse_markdown)
+
+</script>
+
+<textarea bind:value={$text}></textarea>
+
+  
+{@html $parsed_text}
+
+<style>
+	textarea {
+		width: 100%;
+		height: 200px;
+	}
+</style>
+
+<!--
+<script lang="ts">
   import { invoke } from "@tauri-apps/api/core";
 
   let name = $state("");
@@ -154,3 +195,4 @@ button {
 }
 
 </style>
+-->

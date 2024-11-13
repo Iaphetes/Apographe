@@ -24,10 +24,9 @@ fn parse_markdown(document: &str) -> String {
     // }
     let mut html = vec![];
     format_html(root, &Options::default(), &mut html).unwrap();
-
-    println!("{:?}", String::from_utf8(html.clone()));
-    // String::from_utf8(html).unwrap()
-    String::from_str("lololo").unwrap()
+    // println!("{:?}", String::from_utf8(html.clone()));
+    String::from_utf8(html).unwrap()
+    // String::from_str("lololo").unwrap()
 }
 
 #[cfg_attr(mobile, tauri::mobile_entry_point)]
