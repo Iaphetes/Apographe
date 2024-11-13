@@ -1,4 +1,5 @@
 const { invoke } = window.__TAURI__.core;
+const {readFile  } = window.__TAURI__.fs;
 
 let greetInputEl;
 let greetMsgEl;
@@ -9,18 +10,18 @@ async function greet() {
 }
 
 let text = "";
-window.addEventListener("DOMContentLoaded", () => {
+window.addEventListener("DOMCharacterDataModified", () => {
+// window.addEventListener("DOMContentLoaded", () => {
   let textarea = document.getElementById('markdown_input');
   textarea.addEventListener('input', ()=> {
-    text = textarea.value;
+    text = textarea.innerText;
     invoke("parse_markdown", { document: text }).then(
       (ret)=>{    
         var tag_id = document.getElementById('rendered_markdown');
         tag_id.innerHTML = "<pre>".concat("", ret).concat("", "</pre>");
+        // tag_id.innerHTML =  ret;
       }
     );
 
   });
 });
-var x = document.createElement("INPUT");
-x.setAttribute("type", "text");
