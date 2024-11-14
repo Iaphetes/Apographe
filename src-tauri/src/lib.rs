@@ -40,7 +40,7 @@ pub fn run() {
         .setup(|app| {
             // allowed the given directory
             let scope = app.fs_scope();
-            scope.allow_directory("/home/toxotes", true);
+            scope.allow_directory(tauri::path::BaseDirectory::Home.variable(), true);
             app.set_theme(Some(tauri::Theme::Dark));
 
             Ok(())

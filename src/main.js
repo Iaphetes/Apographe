@@ -1,13 +1,11 @@
-const { invoke } = window.__TAURI__.core;
-const {readFile  } = window.__TAURI__.fs;
+const { convertFileSrc, invoke } = window.__TAURI__.core;
+const { homeDir, join } = window.__TAURI__.path;
+const { readFile } = window.__TAURI__.fs;
 
-let greetInputEl;
-let greetMsgEl;
+const appDataDirPath = await homeDir();
+const filePath = await join(appDataDirPath, 'Pictures/wallpaper.png');
 
-async function greet() {
-  // Learn more about Tauri commands at https://tauri.app/develop/calling-rust/
-  greetMsgEl.textContent = await invoke("greet", { name: "harald" });
-}
+const assetUrl = convertFileSrc(filePath);
 
 let text = "";
 window.addEventListener("DOMCharacterDataModified", () => {
@@ -18,8 +16,8 @@ window.addEventListener("DOMCharacterDataModified", () => {
     invoke("parse_markdown", { document: text }).then(
       (ret)=>{    
         var tag_id = document.getElementById('rendered_markdown');
-        tag_id.innerHTML = "<pre>".concat("", ret).concat("", "</pre>");
-        // tag_id.innerHTML =  ret;
+        // tag_id.innerHTML = "<pre>".concat("", ret).concat("", "</pre>");
+        tag_id.innerText = assetUrl.concat("", ' \n <img src="'.concat("", assetUrl).concat("", '" alt="Girl in a jacket" width="500" height="600">'))
       }
     );
 
