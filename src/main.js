@@ -7,6 +7,7 @@ const filePath = await join(appDataDirPath, 'Pictures/wallpaper.png');
 
 const assetUrl = convertFileSrc(filePath);
 
+
 let text = "";
 window.addEventListener("DOMCharacterDataModified", () => {
 // window.addEventListener("DOMContentLoaded", () => {
@@ -17,7 +18,7 @@ window.addEventListener("DOMCharacterDataModified", () => {
       (ret)=>{    
         var tag_id = document.getElementById('rendered_markdown');
         // tag_id.innerHTML = "<pre>".concat("", ret).concat("", "</pre>");
-        tag_id.innerText = assetUrl.concat("", ' \n <img src="'.concat("", assetUrl).concat("", '" alt="Girl in a jacket" width="500" height="600">'))
+        tag_id.innerHTML = assetUrl.concat(" ", ' \n <img src="'.concat("", assetUrl).concat("", '" alt="Girl in a jacket" width="500" height="600">'))
       }
     );
 
