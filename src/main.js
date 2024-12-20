@@ -30,3 +30,16 @@ textarea.addEventListener('input', ()=> {
 
 // });
 });
+document.getElementById("hide-sidebar").onclick = function() {toggle_visibility("sidebar");};
+function toggle_visibility(id) {
+    if (document.getElementById(id).style.visibility == "hidden"){
+        document.getElementById(id).style.visibility = "visible";
+        var style = window.getComputedStyle(document.body);
+        document.getElementById(id).style.width = style.getPropertyValue("--sidebar-width");
+    }else{
+        
+        document.getElementById(id).style.visibility = "hidden";
+        document.getElementById(id).style.width = 0;
+    }
+    
+}

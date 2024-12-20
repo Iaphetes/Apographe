@@ -1,19 +1,30 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="stylesheet" href="styles.css" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Tauri App</title>
-    <script type="module" src="/main.js" defer></script>
-  </head>
+    <head>
+        <meta charset="UTF-8" />
+        <link rel="stylesheet" href="styles.css" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Tauri App</title>
+        <script type="module" src="./main.js" defer></script>
+        <script src="./main.js"></script>
+    </head>
 
-  <body>
-    <main class="container">
-        <div class="main_editor">
-          <div class='markdown_input' id="markdown_input" contenteditable></div>
-          <div class="rendered_markdown" id="rendered_markdown"></div>
+    <body>
+        <div class="main">
+            <div class="top-bar">
+                <button class="topbar_button" id="hide-sidebar"><img class="topbar_icon" src="images/graph_icon.svg" /></button>
+            </div>
+            <div class="container">
+                <div id="sidebar">
+                    <button class="sidebar_button"><img class="sidebar_icon" src="images/graph_icon.svg" /></button>
+                    <button class="sidebar_button"><img class="sidebar_icon" src="images/graph_icon.svg" /></button>
+                    <button class="sidebar_button"><img class="sidebar_icon" src="images/graph_icon.svg" /></button>
+                </div>
+                <div class="row" id="main_editor">
+                    <div class="col" id="markdown_input" contenteditable></div>
+                    <div class="col" id="rendered_markdown"></div>
+                </div>
+            </div>
         </div>
-    </main>
-  </body>
+    </body>
 </html>
