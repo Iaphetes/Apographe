@@ -18,15 +18,13 @@ textarea.addEventListener('input', ()=> {
     text = textarea.innerText;
     var tag_id = document.getElementById('rendered_markdown');
     tag_id.innerHTML = "<p>HI</p>"
-  // invoke("parse_markdown", { document: text }).then(
-  //   (ret)=>{    
-  //     var tag_id = document.getElementById('rendered_markdown');
-  //     // tag_id.innerHTML = assetUrl.concat(" ", ' \n <img src="'.concat("", assetUrl).concat("", '" alt="Girl in a jacket" width="500" height="600">'))
-      // tag_id.innerHTML = "<p>HI</p>"
-  //     // tag_id.innerHTML = "<pre>".concat("", ret).concat("", "</pre>");
-      tag_id.innerHTML = assetUrl.concat(" ", ' \n <img src="'.concat("", assetUrl).concat("", '" alt="Girl in a jacket" width="500" height="600">'))
-  //   }
-  // );
+  invoke("parse_markdown", { document: text }).then(
+    (ret)=>{    
+      var tag_id = document.getElementById('rendered_markdown');
+      tag_id.innerHTML = "<pre>".concat("", ret).concat("", "</pre>");
+   // tag_id.innerHTML = assetUrl.concat(" ", ' \n <img src="'.concat("", assetUrl).concat("", '" alt="Girl in a jacket" width="500" height="600">'))
+    }
+  );
 
 // });
 });
@@ -43,3 +41,15 @@ function toggle_visibility(id) {
     }
     
 }
+function handleShortcut(event) {
+    var markdown_editor = document.getElementById('markdown_input');
+
+    if (document.activeElement === markdown_editor){
+        if (event.ctrlKey) {
+            if (event.key === "l"){            
+                event.preventDefault();
+            }
+        }
+    }
+}
+document.addEventListener("keydown", handleShortcut);

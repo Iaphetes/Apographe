@@ -82,7 +82,13 @@ h1 {
   margin-bottom: 0.067em;
 }
 
+ol li {
+  margin-left: 1em;
+}
 
+ul li {
+  margin-left: 1em;
+}
 .sidebar_button {
     width: 100%;
     background-color: var(--main-bg-color);
