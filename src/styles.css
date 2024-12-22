@@ -80,6 +80,7 @@ h1 {
   line-height: 18px;
     margin-top: 0.067em;
   margin-bottom: 0.067em;
+  color: red;
 }
 
 ol li {
@@ -87,6 +88,11 @@ ol li {
 }
 
 ul li {
+  margin-top: 0;
+  margin-bottom: 0;
+  padding: 0;
+  margin: 0;
+  padding: 0;
   margin-left: 1em;
 }
 .sidebar_button {
@@ -101,7 +107,7 @@ ul li {
 .topbar_button {
     height: 2em;
     background-color: var(--main-bg-color);
-    /*border: none;*/
+    border: none;
 }
 .topbar_icon {
     height: 100%;

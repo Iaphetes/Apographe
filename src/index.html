@@ -7,6 +7,7 @@
         <title>Tauri App</title>
         <script type="module" src="./main.js" defer></script>
         <script src="./main.js"></script>
+          <script src="//unpkg.com/force-graph"></script>
     </head>
 
     <body>
@@ -23,7 +24,9 @@
                 <div class="row" id="main_editor">
                     <div class="col" id="markdown_input" contenteditable></div>
                     <div class="col" id="rendered_markdown"></div>
+
                 </div>
+                  <div id="graph"></div>
             </div>
         </div>
     </body>
