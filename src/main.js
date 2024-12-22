@@ -14,17 +14,21 @@ let text = "";
   // tag_id.innerHTML = "<p>HI</p>"
 // window.addEventListener("DOMContentLoaded", () => {
 let textarea = document.getElementById('markdown_input');
+
+
+let placeholder_path = "FILEPATH";
+let path_template = convertFileSrc(placeholder_path);
+
 textarea.addEventListener('input', ()=> {
     text = textarea.innerText;
     var tag_id = document.getElementById('rendered_markdown');
-    tag_id.innerHTML = "<p>HI</p>"
-  invoke("parse_markdown", { document: text }).then(
-    (ret)=>{    
-      var tag_id = document.getElementById('rendered_markdown');
-      tag_id.innerHTML = "<pre>".concat("", ret).concat("", "</pre>");
+    invoke("parse_markdown", { document: text, pathtemplate: path_template}).then(
+        (ret)=>{    
+            var tag_id = document.getElementById('rendered_markdown');
+            tag_id.innerHTML = "<pre>".concat("", ret).concat("", "</pre>");
    // tag_id.innerHTML = assetUrl.concat(" ", ' \n <img src="'.concat("", assetUrl).concat("", '" alt="Girl in a jacket" width="500" height="600">'))
-    }
-  );
+        }
+    );
 
 // });
 });

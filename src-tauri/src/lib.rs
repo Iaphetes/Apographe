@@ -1,7 +1,9 @@
+use std::path::Path;
+
 use comrak::{format_html, nodes::NodeValue, parse_document, Arena, Options};
+use shellexpand;
 use tauri::Manager;
 use tauri_plugin_fs::FsExt;
-
 // Learn more about Tauri commands at https://tauri.app/develop/calling-rust/
 #[tauri::command]
 fn greet(name: &str) -> String {
@@ -9,9 +11,10 @@ fn greet(name: &str) -> String {
 }
 
 #[tauri::command]
-fn parse_markdown(document: &str) -> String {
+fn parse_markdown(document: &str, pathtemplate: &str) -> String {
     let mut rendered_markdown: String = String::new();
-    // tauri::Builder::default().setup(move |app| {
+    let path = "/foo/bar.txt";
+    println!("{:?}", shellexpand::full(path));
     // let webview = app.get_webview_window("main").unwrap();
     let arena = Arena::new();
 
@@ -24,16 +27,15 @@ fn parse_markdown(document: &str) -> String {
     // Iterate over all the descendants of root.
     for node in root.descendants() {
         if let NodeValue::Image(ref mut image_node) = node.data.borrow_mut().value {
-            // image_node.url = format!("file://{}", image_node.url);
-            // println!("{:?}", webview.eval(&image_node.url));
+            if let Ok(resolved_path) = shellexpand::full(&image_node.url) {
+                image_node.url = pathtemplate.replace("FILEPATH", &resolved_path);
+            }
         }
     }
     let mut html = vec![];
     format_html(root, &options, &mut html).unwrap();
     println!("{}", String::from_utf8(html.clone()).unwrap());
     rendered_markdown = String::from_utf8(html).unwrap();
-    // Ok(())
-    // });
     return rendered_markdown.to_owned();
     // String::from_str("lololo").unwrap()
 }

@@ -25,4 +25,5 @@ serde_json = "1"
 comrak = "0.29.0"
 tauri-plugin-fs = "2"
 tauri-plugin-log = "2"
+shellexpand = "3.1.0"
 
