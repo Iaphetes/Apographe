@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="15.447813mm"
+   height="20.119373mm"
+   viewBox="0 0 15.447813 20.119373"
+   version="1.1"
+   id="svg1"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs1">
+    <rect
+       x="285.77481"
+       y="53.202755"
+       width="56.125984"
+       height="51.214962"
+       id="rect8" />
+  </defs>
+  <g
+     id="layer2"
+     transform="translate(-70.114011,-9.8599625)">
+    <path
+       id="rect6-4"
+       style="fill:#bababa;fill-opacity:1;stroke:#1f4c1f;stroke-linejoin:round;stroke-miterlimit:25.5;stroke-opacity:1;paint-order:stroke fill markers"
+       d="m 83.329329,11.999649 1.7325,1.701562 V 29.479336 H 70.614016 V 10.359962 h 10.967345 z" />
+    <path
+       id="path7-9"
+       style="fill:#bababa;fill-opacity:1;stroke:#1f4c1f;stroke-linejoin:round;stroke-miterlimit:25.5;stroke-opacity:1;paint-order:stroke fill markers"
+       d="m 81.565891,13.701212 c 0.358028,0.238093 3.495938,-10e-7 3.495938,-10e-7 V 29.479336 H 70.614016 V 10.359962 h 10.967345 z" />
+    <text
+       xml:space="preserve"
+       transform="matrix(0.18089399,0,0,0.18790056,22.65461,1.4354568)"
+       id="text7"
+       style="text-align:start;writing-mode:lr-tb;direction:ltr;white-space:pre;shape-inside:url(#rect8);fill:#1d4a1d;fill-opacity:1;stroke:#1d491d;stroke-width:3.77953;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:25.5;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers"><tspan
+         x="285.77539"
+         y="89.598132"
+         id="tspan2"><tspan
+           style="font-size:40px;font-family:Sans;-inkscape-font-specification:'Sans, Normal'"
+           id="tspan1">M</tspan></tspan></text>
+    <rect
+       style="fill:#1d4a1d;fill-opacity:1;stroke:#1d491d;stroke-width:0.599626;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:3.3;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers"
+       id="rect12"
+       width="1.0527325"
+       height="3.7217491"
+       x="77.175468"
+       y="21.155254" />
+    <path
+       style="fill:#1d4a1d;fill-opacity:1;stroke:#1d491d;stroke-width:0.900731;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:3.3;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers"
+       id="path12"
+       d="m 102.61969,22.958655 -3.967938,-6.87267 7.935878,0 z"
+       transform="matrix(0.36867589,0,0,0.37368403,39.919915,18.066577)" />
+  </g>
+</svg>

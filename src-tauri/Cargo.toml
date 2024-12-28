@@ -26,4 +26,5 @@ comrak = "0.29.0"
 tauri-plugin-fs = "2"
 tauri-plugin-log = "2"
 shellexpand = "3.1.0"
+html_tag = "0.1.3"
 

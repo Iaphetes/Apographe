@@ -1,31 +1,35 @@
-
-
 .logo.vanilla:hover {
   filter: drop-shadow(0 0 2em #ffe21c);
 }
+
 :root {
-    --main-bg-color: #4f4f4f;
-    --sidebar-width: 3em;
-    font-family: Avenir, Helvetica, Arial, sans-serif;
-    font-size: 16px;
-    line-height: 24px;
+  --main-bg-color: #2f2f2f;
+  --sidebar-width: 3em;
+  --highlight-color: #5f5f5f;
+  --text-color: #ffffff;
 
-    color: #f6f6f6;
-    background-color: var(--main-bg-color);
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  line-height: 24px;
 
-    font-synthesis: none;
-    text-rendering: optimizeLegibility;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    -webkit-text-size-adjust: 100%;
-  
+  color: #f6f6f6;
+  background-color: var(--main-bg-color);
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+
 
 }
-*{
+
+* {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
 }
+
 .container {
   height: 100%;
   margin: 0;
@@ -38,35 +42,41 @@
 
 
 .col {
-    width: 50%;
-    padding: 0.5em;
-    margin: .1em;
-    border: solid;
-    border-radius: .5em;
+  width: 50%;
+  padding: 0.5em;
+  margin: .1em;
+  border: solid;
+  border-radius: .5em;
 }
-#markdown_input
-{
-    grid-column: 1;
-    grid-row: 1;
-    text-align: left;
-    /*float:left;*/
-    color: #f6f6f6;
-    background: var(--main-bg-color);
-}
-#rendered_markdown {
-    grid-column: 2;
-    grid-row: 1;
-    
 
-    /*float:right;*/
-    text-align: left;
-    color: #f6f6f6;
-    background-color: var(--main-bg-color);
-    img {
-      width: 100%;
-    }
+#markdown_input {
+  grid-column: 1;
+  grid-row: 1;
+  text-align: left;
+  /*float:left;*/
+  color: #f6f6f6;
+  background: var(--main-bg-color);
+  overflow: scroll;
 }
-.main_editor{
+
+#rendered_markdown {
+  grid-column: 2;
+  grid-row: 1;
+
+
+  /*float:right;*/
+  text-align: left;
+  color: #f6f6f6;
+  background-color: var(--main-bg-color);
+
+  img {
+    width: 100%;
+  }
+
+  overflow: scroll;
+}
+
+.main_editor {
   width: 100%;
   text-align: center;
   font-size: 16px;
@@ -78,10 +88,11 @@
   color: #f6f6f6;
   background-color: var(--main-bg-color);
 }
+
 h1 {
   text-align: left;
   line-height: 18px;
-    margin-top: 0.067em;
+  margin-top: 0.067em;
   margin-bottom: 0.067em;
   color: red;
 }
@@ -94,22 +105,26 @@ li {
 }
 
 .sidebar_button {
-    width: 100%;
-    background-color: var(--main-bg-color);
-    border: none;
+  width: 100%;
+  background-color: var(--main-bg-color);
+  border: none;
 }
 
 .sidebar_icon {
-    width: 100%;
+  width: 100%;
 }
+
 .topbar_button {
-    height: 2em;
-    background-color: var(--main-bg-color);
-    border: none;
+  height: 2em;
+  background-color: transparent;
+  border: none;
 }
+
 .topbar_icon {
-    height: 100%;
+  height: 100%;
+  background-color: transparent;
 }
+
 @media (prefers-color-scheme: dark) {
   :root {
     color: #f6f6f6;
@@ -117,22 +132,61 @@ li {
   }
 
 }
+
 #main_editor {
-    display: flex;
-    width: 100%;
-    height: 100%;
+  display: flex;
+  width: 100%;
+  height: 100%;
 }
 
 .main {
-    display: flex;
-    height:100vh;
-    flex-direction: column;
+  display: flex;
+  height: 95vh;
+  flex-direction: column;
 }
 
 #sidebar {
-    visibility: visible;
-    width: var(--sidebar-width);
-    transition: all 0.1s ease-out;
+  visibility: visible;
+  width: var(--sidebar-width);
+  transition: all 0.1s ease-out;
 }
 
 
+
+.filetree {
+  width: 10em;
+  overflow-x: scroll;
+  overflow-y: scroll;
+}
+
+.filetree-directory-button,
+.filetree-file-button {
+  background-color: transparent;
+  border: none;
+  width: 100%;
+  height: inherit;
+  text-align: left;
+  transition: all 0.01s ease-out;
+  white-space: nowrap;
+  overflow-y: visible;
+  color: var(--text-color);
+
+}
+
+.filetree-icon {
+  height: 1em;
+  background-color: transparent;
+  margin-right: 5px;
+}
+
+
+.filetree_expand {
+  background-color: transparent;
+  border: none;
+}
+
+.filetree-file-button:hover,
+.filetree-directory-button:hover {
+  background-color: var(--highlight-color);
+  /* Green */
+}
