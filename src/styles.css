@@ -57,9 +57,11 @@
   flex: 0 0 49%;
   width: 50%;
   padding: 0.5em;
-  margin: .1em;
+  /* margin: .1em; */
+  margin-left: .1em;
   border: solid;
-  border-radius: .5em;
+  border-color: var(--highlight-color); 
+  /* border-radius: .5em; */
 }
 #markdown_input {
   grid-column: 1;
@@ -146,7 +148,8 @@ li {
 .filetree {
   float: left;
   border: solid;
-  /* width: var(--filetree-width); */
+  border-color: var(--highlight-color); 
+  width: var(--filetree-width);
   overflow-x: scroll;
   overflow-y: scroll;
   resize: width;
