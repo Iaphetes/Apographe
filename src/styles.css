@@ -4,9 +4,9 @@
 
 :root {
   --main-bg-color: #2f2f2f;
-  --highlight-color: #5f5f5f;
+  --highlight-color: #3f3f3f;
   --text-color: #f6f6f6;
-
+  --accent-color: #5f5f5f;
   --sidebar-width: 3em;
   --filetree-width: 10em;
   font-family: Avenir, Helvetica, Arial, sans-serif;
@@ -60,9 +60,10 @@
   /* margin: .1em; */
   margin-left: .1em;
   border: solid;
-  border-color: var(--highlight-color); 
+  border-color: var(--highlight-color);
   /* border-radius: .5em; */
 }
+
 #markdown_input {
   grid-column: 1;
   grid-row: 1;
@@ -79,9 +80,11 @@
   text-align: left;
   color: var(--text-color);
   background-color: var(--main-bg-color);
+
   img {
     width: 100%;
   }
+
   overflow-x: wrap;
   overflow-y: scroll;
 }
@@ -148,11 +151,13 @@ li {
 .filetree {
   float: left;
   border: solid;
-  border-color: var(--highlight-color); 
+  border-color: var(--highlight-color);
   width: var(--filetree-width);
   overflow-x: scroll;
-  overflow-y: scroll;
-  resize: width;
+  /* overflow-y: scroll; */
+  overflow-y: hidden;
+  text-overflow: ellipsis;
+  resize: horizontal;
 }
 
 .filetree-directory-button,
@@ -164,13 +169,19 @@ li {
   text-align: left;
   transition: all 0.01s ease-out;
   white-space: nowrap;
-  overflow-y: visible;
+  /* overflow-y: visible; */
+  overflow-y: hidden;
+  overflow: hidden;
   color: var(--text-color);
+  text-overflow: ellipsis;
 
 }
-.filetree-node{
+
+.filetree-node {
   margin-left: 1em;
+  overflow-y: hidden;
 }
+
 .filetree-icon {
   height: 1em;
   background-color: transparent;
@@ -187,4 +198,26 @@ li {
 .filetree-directory-button:hover {
   background-color: var(--highlight-color);
   /* Green */
+}
+
+dialog {
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) !important;
+  background-color: var(--highlight-color);
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 0 #0000, 0 0 #0000, 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  width: 50%;
+  height: 20%;
+  margin: auto;
+}
+#search_dialog_input{
+  border: solid;
+  border-color: var(--accent-color);
+  border-top-right-radius:10px;
+  border-top-left-radius:10px;
+  color: var(--text-color);
 }

@@ -14,23 +14,35 @@ let path_template = convertFileSrc(placeholder_path);
 let textarea = document.getElementById('markdown_input');
 
 
-export function render_markdown(){
+export function render_markdown() {
   text = textarea.innerText;
-    invoke("parse_markdown", { document: text, pathtemplate: path_template, basepath: "$HOME/Documents/Knowledgebase"}).then(
-        (ret)=>{    
-    var tag_id = document.getElementById('rendered_markdown');
+  invoke("parse_markdown", { document: text, pathtemplate: path_template, basepath: "$HOME/Documents/Knowledgebase" }).then(
+    (ret) => {
+      var tag_id = document.getElementById('rendered_markdown');
       tag_id.innerHTML = "<pre>".concat("", ret).concat("", "</pre>");
-   // tag_id.innerHTML = assetUrl.concat(" ", ' \n <img src="'.concat("", assetUrl).concat("", '" alt="Girl in a jacket" width="500" height="600">'))
-        }
-    );
+      // tag_id.innerHTML = assetUrl.concat(" ", ' \n <img src="'.concat("", assetUrl).concat("", '" alt="Girl in a jacket" width="500" height="600">'))
+    }
+  );
 }
-textarea.addEventListener('input', ()=> {
+textarea.addEventListener('input', () => {
   render_markdown();
-    
+
 
 });
+const dialog = document.querySelector("dialog");
+function showSearch() {
+  dialog.show();
+}
 
- // Random tree
+document
+  .addEventListener("keydown",
+    function(event) {
+      if (event.key === "a") {
+        event.preventDefault();
+        showSearch();
+      }
+    });
+// Random tree
 // const N = 300;
 // const gData = {
 //   nodes: [...Array(N).keys()].map(i => ({ id: i })),
