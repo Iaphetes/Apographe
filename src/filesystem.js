@@ -1,5 +1,4 @@
 const { convertFileSrc, invoke } = window.__TAURI__.core;
-const { homeDir, join } = window.__TAURI__.path;
 const { readTextFile } = window.__TAURI__.fs;
 import { render_markdown } from "./main.js";
 function handle_file_select(filename) {

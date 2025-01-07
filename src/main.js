@@ -1,11 +1,4 @@
 const { convertFileSrc, invoke } = window.__TAURI__.core;
-const { homeDir, join } = window.__TAURI__.path;
-const { readFile } = window.__TAURI__.fs;
-
-const appDataDirPath = await homeDir();
-const filePath = await join(appDataDirPath, 'Pictures/wallpaper.png');
-
-const assetUrl = convertFileSrc(filePath);
 
 let text = "";
 let placeholder_path = "FILEPATH";
@@ -26,22 +19,9 @@ export function render_markdown() {
 }
 textarea.addEventListener('input', () => {
   render_markdown();
-
-
 });
-const dialog = document.querySelector("dialog");
-function showSearch() {
-  dialog.show();
-}
 
-document
-  .addEventListener("keydown",
-    function(event) {
-      if (event.key === "a") {
-        event.preventDefault();
-        showSearch();
-      }
-    });
+
 // Random tree
 // const N = 300;
 // const gData = {
