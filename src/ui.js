@@ -23,16 +23,18 @@ document.addEventListener("keydown", handleShortcut);
 document.getElementById("hide-sidebar").onclick = function () {
     toggle_visibility("sidebar");
 };
-const global_search_dialog = document.querySelector("dialog");
-export function showGlobalSearch() {
-  topmost_element = "global-search";
+const global_search_dialog = document.getElementById("file-search-dialog");
+export function showFileSearch() {
+  topmost_element = "file-search";
   global_search_dialog.show();
 }
 
 let topmost_element = "";
 
 export function escape(){
-  if (topmost_element === "global-search"){
+  if (topmost_element === "file-search"){
     global_search_dialog.close();
   }
 }
+
+

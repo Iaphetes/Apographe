@@ -214,7 +214,7 @@ dialog {
   height: 20%;
   margin: auto;
 }
-#search_dialog_input{
+#file-search-dialog-input{
   border: solid;
   border-color: var(--accent-color);
   border-top-right-radius:10px;
