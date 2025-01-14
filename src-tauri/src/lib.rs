@@ -4,6 +4,7 @@ mod search;
 use std::env;
 use tauri_plugin_fs::FsExt;
 
+use search::search_files;
 use file_tree::dir_tree_html;
 use markdown_parser::parse_markdown;
 
@@ -21,7 +22,7 @@ pub fn run() {
 
             Ok(())
         })
-        .invoke_handler(tauri::generate_handler![dir_tree_html, parse_markdown])
+        .invoke_handler(tauri::generate_handler![dir_tree_html, parse_markdown, search_files])
         .run(tauri::generate_context!())
         .expect("error while running tauri application");
 }
